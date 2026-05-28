@@ -1,0 +1,82 @@
+NombreDeUsuario,Ciudad,Fecha_Hora,Temperatura_C,Condicion_Clima,Humedad_Porcentaje,Viento_kmh
+martin_g,Buenos Aires,2026-01-05 09:14:00,29.3,Cielo despejado,58,12.6
+martin_g,Buenos Aires,2026-01-12 14:30:00,32.1,Parcialmente nublado,52,18.0
+martin_g,Mendoza,2026-01-18 11:00:00,36.4,Cielo despejado,22,8.5
+martin_g,Córdoba,2026-01-25 16:45:00,31.7,Parcialmente nublado,44,14.2
+martin_g,Buenos Aires,2026-02-03 10:20:00,28.5,Muy nublado,70,20.3
+martin_g,Rosario,2026-02-10 13:00:00,30.2,Lluvia ligera,80,22.1
+martin_g,Buenos Aires,2026-02-20 08:30:00,26.8,Nublado,65,16.4
+martin_g,Bariloche,2026-02-28 12:00:00,18.5,Parcialmente nublado,60,25.3
+martin_g,Buenos Aires,2026-03-07 15:10:00,24.1,Cielo despejado,55,10.8
+martin_g,Buenos Aires,2026-03-15 09:45:00,21.6,Muy nublado,72,19.5
+martin_g,Mendoza,2026-03-22 11:30:00,22.3,Cielo despejado,28,11.0
+martin_g,Buenos Aires,2026-04-04 10:00:00,18.2,Nublado,68,17.6
+martin_g,Mar del Plata,2026-04-12 13:20:00,15.9,Lluvia ligera,82,28.4
+martin_g,Buenos Aires,2026-04-20 16:00:00,16.4,Parcialmente nublado,63,14.0
+martin_g,Córdoba,2026-04-28 09:00:00,14.7,Nublado,74,16.8
+martin_g,Buenos Aires,2026-05-05 11:15:00,13.2,Muy nublado,78,21.2
+martin_g,Buenos Aires,2026-05-14 14:00:00,11.8,Lluvia,85,24.6
+martin_g,Madrid,2026-05-22 18:30:00,19.4,Cielo despejado,40,15.3
+martin_g,Buenos Aires,2026-05-27 09:30:00,10.5,Muy nublado,80,22.0
+sofia_r,Buenos Aires,2026-01-08 10:00:00,30.5,Cielo despejado,50,10.2
+sofia_r,Buenos Aires,2026-01-16 14:15:00,33.2,Parcialmente nublado,48,16.5
+sofia_r,Tucumán,2026-01-22 12:00:00,35.8,Lluvia,88,14.0
+sofia_r,Buenos Aires,2026-02-05 09:30:00,29.1,Cielo despejado,55,9.8
+sofia_r,Rosario,2026-02-14 13:45:00,31.0,Muy nublado,68,20.5
+sofia_r,Buenos Aires,2026-02-22 11:00:00,27.4,Parcialmente nublado,60,13.7
+sofia_r,Buenos Aires,2026-03-02 15:20:00,25.0,Cielo despejado,52,11.4
+sofia_r,Mar del Plata,2026-03-10 10:30:00,20.3,Lluvia ligera,75,30.2
+sofia_r,Buenos Aires,2026-03-18 09:00:00,22.6,Nublado,66,17.9
+sofia_r,Mendoza,2026-03-26 14:00:00,20.1,Cielo despejado,25,9.3
+sofia_r,Buenos Aires,2026-04-06 11:30:00,17.8,Parcialmente nublado,61,14.5
+sofia_r,Buenos Aires,2026-04-15 16:45:00,15.3,Muy nublado,76,20.8
+sofia_r,Córdoba,2026-04-23 10:00:00,13.9,Nublado,71,15.6
+sofia_r,Buenos Aires,2026-05-02 09:45:00,12.4,Lluvia ligera,83,23.4
+sofia_r,Buenos Aires,2026-05-11 14:30:00,11.0,Muy nublado,81,25.0
+sofia_r,New York,2026-05-19 20:00:00,17.2,Parcialmente nublado,58,18.7
+sofia_r,Buenos Aires,2026-05-26 10:15:00,9.8,Lluvia,87,26.3
+lucas_p,Buenos Aires,2026-01-10 11:00:00,31.2,Cielo despejado,46,8.9
+lucas_p,Bariloche,2026-01-20 13:30:00,22.4,Parcialmente nublado,55,30.1
+lucas_p,Buenos Aires,2026-01-30 09:15:00,28.9,Muy nublado,62,19.3
+lucas_p,Rosario,2026-02-08 15:00:00,29.6,Cielo despejado,50,11.2
+lucas_p,Buenos Aires,2026-02-17 10:45:00,26.2,Lluvia,90,24.8
+lucas_p,Tucumán,2026-02-24 12:30:00,34.1,Tormenta,92,18.5
+lucas_p,Buenos Aires,2026-03-05 09:00:00,23.8,Parcialmente nublado,58,13.1
+lucas_p,Mendoza,2026-03-12 11:15:00,21.5,Cielo despejado,30,7.8
+lucas_p,Buenos Aires,2026-03-20 16:00:00,20.4,Nublado,67,16.2
+lucas_p,Mar del Plata,2026-03-28 10:00:00,17.1,Lluvia ligera,79,32.5
+lucas_p,Buenos Aires,2026-04-08 13:00:00,16.5,Cielo despejado,59,12.0
+lucas_p,Córdoba,2026-04-16 09:30:00,13.2,Muy nublado,75,18.3
+lucas_p,Buenos Aires,2026-04-25 11:45:00,14.8,Parcialmente nublado,64,15.9
+lucas_p,Buenos Aires,2026-05-04 10:30:00,12.1,Nublado,77,20.4
+lucas_p,Tokyo,2026-05-13 07:00:00,21.5,Lluvia ligera,70,14.2
+lucas_p,Buenos Aires,2026-05-21 15:00:00,10.3,Muy nublado,82,23.7
+lucas_p,Buenos Aires,2026-05-27 11:00:00,9.4,Lluvia,88,27.1
+valentina_m,Buenos Aires,2026-01-14 09:30:00,32.7,Cielo despejado,44,7.6
+valentina_m,Córdoba,2026-01-21 14:00:00,30.9,Parcialmente nublado,50,13.4
+valentina_m,Buenos Aires,2026-02-01 11:15:00,27.6,Muy nublado,66,21.0
+valentina_m,Rosario,2026-02-12 10:30:00,28.8,Cielo despejado,53,10.5
+valentina_m,Buenos Aires,2026-02-19 15:45:00,25.3,Lluvia ligera,76,19.8
+valentina_m,Mar del Plata,2026-02-26 12:00:00,22.0,Parcialmente nublado,62,31.4
+valentina_m,Buenos Aires,2026-03-08 09:00:00,22.9,Cielo despejado,54,10.1
+valentina_m,Mendoza,2026-03-16 13:30:00,19.8,Cielo despejado,27,8.2
+valentina_m,Buenos Aires,2026-03-24 11:00:00,19.5,Nublado,69,15.7
+valentina_m,Tucumán,2026-04-01 10:15:00,24.3,Parcialmente nublado,65,12.9
+valentina_m,Buenos Aires,2026-04-10 14:30:00,17.0,Muy nublado,73,19.2
+valentina_m,Bariloche,2026-04-18 09:45:00,8.6,Lluvia,88,35.6
+valentina_m,Buenos Aires,2026-04-27 12:00:00,13.6,Nublado,70,17.4
+valentina_m,Buenos Aires,2026-05-06 10:00:00,11.5,Muy nublado,79,22.8
+valentina_m,Madrid,2026-05-15 17:00:00,20.8,Cielo despejado,38,13.6
+valentina_m,Buenos Aires,2026-05-24 09:15:00,10.1,Lluvia ligera,84,24.2
+admin,Buenos Aires,2026-01-03 08:00:00,28.0,Parcialmente nublado,57,11.0
+admin,Buenos Aires,2026-01-25 12:00:00,33.5,Cielo despejado,42,9.5
+admin,Córdoba,2026-02-06 10:30:00,29.3,Muy nublado,64,22.4
+admin,Buenos Aires,2026-02-15 14:00:00,26.0,Lluvia,89,25.0
+admin,Mendoza,2026-03-03 11:00:00,23.1,Cielo despejado,26,6.9
+admin,Buenos Aires,2026-03-14 09:30:00,21.2,Nublado,65,14.8
+admin,Rosario,2026-03-28 13:15:00,18.7,Parcialmente nublado,60,16.0
+admin,Buenos Aires,2026-04-09 10:45:00,15.8,Muy nublado,72,20.1
+admin,Mar del Plata,2026-04-22 11:30:00,12.4,Lluvia ligera,80,29.7
+admin,Buenos Aires,2026-05-08 09:00:00,11.2,Nublado,76,21.5
+admin,Buenos Aires,2026-05-20 14:15:00,9.7,Lluvia,86,26.8
+admin,New York,2026-05-25 22:00:00,16.4,Parcialmente nublado,55,17.3

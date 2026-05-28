@@ -1,0 +1,611 @@
+/* ============================================================
+   GuardiánClima ITBA – Premium Dark TUI Theme
+   ============================================================ */
+
+/* ── Global ─────────────────────────────────────────────────── */
+Screen {
+    background: #0d0d0d;
+    color: $text;
+}
+
+/* ── Overrides de widgets base (corrige caracteres de bloque en CMD) ─── */
+/* Textual usa `border: tall` por defecto en Input, que usa ▐▌ → aparece como ? en CMD */
+Input {
+    border: solid $border;
+}
+
+Input:focus {
+    border: solid $accent;
+}
+
+Button {
+    border: solid $border;
+}
+
+Button:focus {
+    border: solid $accent;
+}
+
+Button.-active {
+    border: solid $accent;
+}
+
+/* Variant error: todo rojo, sin celeste */
+Button.-error {
+    border: solid $error;
+}
+
+Button.-error:focus {
+    border: solid $error;
+}
+
+Button.-error:hover {
+    border: solid $error;
+}
+
+/* ============================================================
+   LOGIN SCREEN
+   ============================================================ */
+#login-wrapper {
+    align: center middle;
+    width: 100%;
+    height: 100%;
+    background: #0d0d0d;
+}
+
+#login-card {
+    width: 72;
+    height: auto;
+    border: solid $accent;
+    background: #1a1a1a;
+    padding: 2 4;
+    margin: 1;
+}
+
+#login-banner {
+    text-align: center;
+    color: $accent;
+    text-style: bold;
+    padding: 1 0 0 0;
+}
+
+#login-subtitle {
+    text-align: center;
+    color: $text-muted;
+    text-style: italic;
+    padding: 0 0 1 0;
+}
+
+/* Login / Register Inputs */
+#login-card Input {
+    width: 100%;
+    margin: 1 0;
+}
+
+#login-card Button {
+    width: 100%;
+    margin: 1 0 0 0;
+}
+
+#form-msg {
+    text-align: center;
+    margin: 1 0 0 0;
+    min-height: 1;
+}
+
+#exit-btn {
+    width: 100%;
+    margin: 1 0 0 0;
+}
+
+#password-feedback {
+    margin: 1 0;
+    padding: 1;
+    height: auto;
+    background: #1e1e1e;
+    border: solid $accent;
+}
+
+/* Manual tab bar (replaces TabbedContent) */
+#tab-bar {
+    height: 3;
+    margin: 0 0 1 0;
+}
+
+/* Same specificity as #login-card Button, placed after → wins for tab-bar */
+#tab-bar Button {
+    width: 1fr;
+    margin: 0;
+}
+
+Button.tab-btn.tab-active {
+    color: $accent;
+    border: solid $accent;
+    text-style: bold;
+    background: #1e1e1e;
+}
+
+Button.tab-btn:focus {
+    background: #1a1a1a;
+}
+
+#section-login,
+#section-register {
+    height: auto;
+}
+
+/* ============================================================
+   DASHBOARD SCREEN
+   ============================================================ */
+#dashboard-wrapper {
+    layout: horizontal;
+    width: 100%;
+    height: 100%;
+}
+
+/* ── Sidebar ────────────────────────────────────────────────── */
+#sidebar {
+    width: 34;
+    dock: left;
+    background: #141414;
+    border-right: solid $accent;
+    padding: 1 1;
+}
+
+#sidebar-logo {
+    text-align: center;
+    color: $accent;
+    text-style: bold;
+    padding: 1 0;
+}
+
+#welcome-label {
+    text-align: center;
+    color: $text;
+    padding: 0 0 1 0;
+}
+
+#sidebar Rule {
+    color: $accent-darken-2;
+    margin: 0 0 1 0;
+}
+
+.nav-btn {
+    width: 100%;
+    margin: 0 0 1 0;
+    min-height: 3;
+}
+
+/* Use Button.nav-btn (type+class) for higher specificity than Button:focus */
+Button.nav-btn:hover {
+    background: #1e1e1e;
+}
+
+Button.nav-btn:focus {
+    background: #1a1a1a;
+}
+
+Button.nav-btn.-active {
+    background: #1e1e1e;
+    color: $accent;
+    text-style: bold;
+    border: solid $accent;
+}
+
+Button.nav-btn.-active:hover {
+    background: #1e1e1e;
+    color: $accent;
+    border: solid $accent;
+}
+
+Button.nav-btn.-active:focus {
+    background: #1e1e1e;
+    color: $accent;
+    text-style: bold;
+    border: solid $accent;
+}
+
+/* ── Content area ───────────────────────────────────────────── */
+#content-switcher {
+    width: 1fr;
+    height: 100%;
+    padding: 1 2;
+    background: #0d0d0d;
+}
+
+/* ============================================================
+   SECTION TITLES (shared)
+   ============================================================ */
+.section-title {
+    text-style: bold;
+    color: $accent;
+    padding: 0 0 1 0;
+    text-align: center;
+}
+
+/* ============================================================
+   CLIMA VIEW
+   ============================================================ */
+#clima-view {
+    height: 100%;
+    width: 100%;
+}
+
+#clima-view .search-row {
+    layout: horizontal;
+    height: auto;
+    width: 100%;
+    margin: 0 0 1 0;
+}
+
+#city-input {
+    width: 1fr;
+    margin: 0 1 0 0;
+}
+
+#query-btn {
+    min-width: 16;
+}
+
+#city-suggestions {
+    width: 100%;
+    max-height: 10;
+    border: round $accent;
+    background: $panel;
+    margin: 0 0 1 0;
+}
+
+#weather-result {
+    width: 100%;
+    height: auto;
+    padding: 1;
+}
+
+.weather-main-panel {
+    border: solid $accent;
+    background: #1a1a1a;
+    padding: 2 3;
+    width: 100%;
+    height: auto;
+    margin: 0 0 1 0;
+}
+
+.weather-main-panel:hover {
+    background: $panel;
+}
+
+.weather-main-panel > Static {
+    background: transparent;
+}
+
+.weather-main-panel > Static:hover {
+    background: transparent;
+}
+
+.weather-emoji {
+    text-align: center;
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+.weather-city {
+    text-align: center;
+    text-style: bold;
+    color: $accent;
+    padding: 0 0 1 0;
+}
+
+.weather-temp {
+    text-align: center;
+    text-style: bold;
+    padding: 0 0 1 0;
+}
+
+.weather-details-row {
+    layout: horizontal;
+    height: auto;
+    width: 100%;
+}
+
+.weather-detail-card {
+    width: 1fr;
+    min-width: 18;
+    border: solid $accent;
+    background: #1e1e1e;
+    padding: 1 2;
+    margin: 0 1 0 0;
+    height: auto;
+}
+
+.weather-detail-card:last-child {
+    margin: 0;
+}
+
+.weather-detail-card:hover {
+    background: $boost;
+}
+
+.weather-detail-card > Static {
+    background: transparent;
+}
+
+.weather-detail-card > Static:hover {
+    background: transparent;
+}
+
+.detail-label {
+    color: $text-muted;
+}
+
+.detail-value {
+    text-style: bold;
+    padding: 0;
+}
+
+/* ============================================================
+   HISTORIAL VIEW
+   ============================================================ */
+#historial-view {
+    height: 100%;
+    width: 100%;
+}
+
+#historial-view .search-row {
+    layout: horizontal;
+    height: auto;
+    width: 100%;
+    margin: 0 0 1 0;
+}
+
+#historial-city-input {
+    width: 1fr;
+    margin: 0 1 0 0;
+}
+
+#search-historial-btn {
+    min-width: 16;
+}
+
+#historial-table {
+    height: 1fr;
+    width: 100%;
+    margin: 1 0;
+}
+
+#historial-msg {
+    text-align: center;
+    color: $text-muted;
+    margin: 1 0;
+}
+
+/* ============================================================
+   STATS VIEW
+   ============================================================ */
+#stats-view {
+    height: 100%;
+    width: 100%;
+}
+
+.stats-cards-row {
+    layout: horizontal;
+    height: 9;
+    width: 100%;
+    margin: 1 0;
+}
+
+.stat-card {
+    width: 1fr;
+    border: solid $accent;
+    background: #1a1a1a;
+    padding: 1 2;
+    margin: 0 1 0 0;
+}
+
+.stat-card:last-of-type {
+    margin: 0;
+}
+
+.stat-card-warning {
+    border: solid $accent;
+}
+
+.stat-card-accent {
+    border: solid $accent;
+}
+
+.stat-card-title {
+    color: $text-muted;
+    text-style: italic;
+    text-align: center;
+}
+
+.stat-card-value {
+    text-style: bold;
+    text-align: center;
+    padding: 1 0 0 0;
+    color: $text;
+}
+
+.stats-section {
+    border: solid $accent;
+    background: #1a1a1a;
+    padding: 1 2;
+    margin: 1 0;
+    height: auto;
+}
+
+.stats-section-title {
+    text-style: bold;
+    color: $accent;
+    padding: 0 0 1 0;
+}
+
+#stats-bar-chart {
+    padding: 0;
+}
+
+#stats-conditions {
+    padding: 0;
+}
+
+#stats-empty {
+    text-align: center;
+    color: $text-muted;
+    padding: 2;
+}
+
+/* ============================================================
+   CONSEJO IA VIEW
+   ============================================================ */
+#consejo-view {
+    height: 100%;
+    width: 100%;
+}
+
+/* ── Selector de modo ─────────────────────────────────────── */
+#modo-selector {
+    height: auto;
+    width: 100%;
+    margin: 0 0 1 0;
+}
+
+.modo-btn {
+    width: 1fr;
+    margin: 0 1 0 0;
+    border: solid $border;
+}
+
+.modo-btn:last-child {
+    margin: 0;
+}
+
+.modo-btn.modo-active {
+    color: $accent;
+    border: solid $accent;
+    text-style: bold;
+    background: #1e1e1e;
+}
+
+/* ── Widgets individuales de cada modo ────────────────────── */
+#weather-context {
+    border: solid $warning;
+    background: #1a1a1a;
+    padding: 1 2;
+    margin: 0 0 1 0;
+    height: auto;
+    width: 100%;
+}
+
+.panel-label {
+    color: $text-muted;
+    height: auto;
+    margin: 0 0 1 0;
+}
+
+#historial-select {
+    width: 100%;
+    margin: 0 0 1 0;
+}
+
+/* ── Nueva búsqueda ───────────────────────────────────────── */
+#nueva-search-row {
+    height: auto;
+    width: 100%;
+    margin: 0 0 0 0;
+}
+
+#consejo-city-input {
+    width: 1fr;
+    margin: 0 1 0 0;
+}
+
+#consejo-search-btn {
+    min-width: 12;
+}
+
+#consejo-suggestions {
+    width: 100%;
+    max-height: 8;
+    margin: 0 0 1 0;
+    border: round $accent;
+    background: $panel;
+}
+
+.consejo-result-text {
+    height: auto;
+    width: 100%;
+    padding: 0 0 1 0;
+    color: $text;
+}
+
+/* ── Siempre visibles ─────────────────────────────────────── */
+#ask-ai-btn {
+    margin: 0 0 1 0;
+    width: 100%;
+}
+
+#ai-response {
+    border: solid $success;
+    background: #1a1a1a;
+    padding: 2 3;
+    min-height: 6;
+    height: auto;
+    width: 100%;
+}
+
+/* ============================================================
+   ABOUT VIEW
+   ============================================================ */
+#about-view {
+    height: 100%;
+    width: 100%;
+}
+
+#about-scroll {
+    height: 100%;
+    width: 100%;
+}
+
+.about-section {
+    background: #1a1a1a;
+    border: solid $accent;
+    padding: 1 3;
+    margin: 0 0 1 0;
+    width: 100%;
+    height: auto;
+}
+
+.about-header {
+    text-align: center;
+    text-style: bold;
+    color: $accent;
+    padding: 1 0;
+}
+
+.about-body {
+    padding: 0 1;
+    height: auto;
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.hidden {
+    display: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mt-1 {
+    margin: 1 0 0 0;
+}
+
+.mb-1 {
+    margin: 0 0 1 0;
+}
+
+.p-1 {
+    padding: 1;
+}

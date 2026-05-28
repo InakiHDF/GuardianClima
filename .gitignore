@@ -1,0 +1,34 @@
+# Variables de entorno
+.env
+
+# Directorio de datos (se genera automáticamente)
+# data/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Archivos temporales
+consigna.txt
+
+# Debug
+debug.log
+
+# Claude Code
+.claude/
