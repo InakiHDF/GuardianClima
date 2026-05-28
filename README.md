@@ -1,8 +1,5 @@
 # GuardiánClima ITBA — Guía de Instalación y Configuración
 
-> **Documento entregable** con instrucciones para configurar el entorno, obtener las API keys de forma segura y ejecutar la aplicación.
-
----
 
 ## 1. Requisitos previos
 
@@ -57,7 +54,7 @@ La clave se ve así: `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6`
 
 La clave se ve así: `AIzaSyA1B2C3D4E5F6G7H8I9J0K1L2M3N4O5`
 
----
+
 
 ## 4. Configuración segura de las API keys (archivo `.env`)
 
@@ -110,7 +107,6 @@ python main.py
 
 La interfaz se abre directamente en la terminal.
 
----
 
 ## 6. Flujo de uso — menú a menú
 
@@ -126,7 +122,6 @@ Al abrir la app aparece la pantalla de autenticación con dos pestañas:
   - Al menos 1 número
   - Al menos 1 símbolo especial (`!@#$%^&*`)
 
----
 
 ### Panel principal: 6 opciones en el menú lateral
 
