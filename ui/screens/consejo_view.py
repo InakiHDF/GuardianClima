@@ -8,7 +8,6 @@ from textual.reactive import reactive
 from ia.gemini import obtener_consejo_vestimenta
 from clima.historial import obtener_historial_usuario
 from clima.api import obtener_clima, buscar_ciudades
-import debug_log as dbg
 
 
 class ConsejoView(Container):
@@ -24,8 +23,6 @@ class ConsejoView(Container):
     _current_suggestions: list = []
 
     def compose(self) -> ComposeResult:
-        dbg.info("ConsejoView.compose()")
-
         yield Static('[bold]Consejo IA: Como Me Visto Hoy?[/bold]', classes='section-title')
 
         # ── Selector de modo ────────────────────────────────────────
@@ -58,18 +55,14 @@ class ConsejoView(Container):
         yield Static('', id='ai-response')
 
     def on_mount(self) -> None:
-        # Estado inicial: modo ULTIMA activo
         self._apply_mode_visibility(self.MODO_ULTIMA)
         self.query_one('#consejo-suggestions', OptionList).display = False
 
     # ================================================================
-    # Visibilidad por modo — togglea widgets individuales (sin ContentSwitcher)
+    # Visibilidad por modo
     # ================================================================
 
     def _apply_mode_visibility(self, modo: str) -> None:
-        """Muestra/oculta widgets individuales según el modo."""
-        dbg.info(f"_apply_mode_visibility({modo!r})")
-
         is_ultima    = modo == self.MODO_ULTIMA
         is_historial = modo == self.MODO_HISTORIAL
         is_nueva     = modo == self.MODO_NUEVA
@@ -81,7 +74,6 @@ class ConsejoView(Container):
         self.query_one('#nueva-search-row').display      = is_nueva
         self.query_one('#consejo-search-result').display = is_nueva
 
-        # Ocultar sugerencias al cambiar de modo
         self._hide_suggestions()
 
     # ================================================================
@@ -89,25 +81,22 @@ class ConsejoView(Container):
     # ================================================================
 
     def _set_search_result(self, text: str) -> None:
-        dbg.info(f"_set_search_result: {text[:60]!r}")
         try:
             self.query_one('#consejo-search-result', Static).update(text)
-        except Exception as e:
-            dbg.exc("ERROR _set_search_result", e)
+        except Exception:
+            pass
 
     def _set_ai_response(self, text: str) -> None:
-        dbg.info(f"_set_ai_response: {text[:60]!r}")
         try:
             self.query_one('#ai-response', Static).update(text)
-        except Exception as e:
-            dbg.exc("ERROR _set_ai_response", e)
+        except Exception:
+            pass
 
     # ================================================================
     # Refresh
     # ================================================================
 
     def refresh_data(self) -> None:
-        dbg.info("ConsejoView.refresh_data()")
         self._refresh_ultima_context()
         if self.modo_actual == self.MODO_HISTORIAL:
             self._load_historial_options()
@@ -135,7 +124,6 @@ class ConsejoView(Container):
 
     def _load_historial_options(self) -> None:
         username = self.app.current_user
-        dbg.info(f"_load_historial_options — usuario={username!r}")
         if not username:
             return
         try:
@@ -161,9 +149,8 @@ class ConsejoView(Container):
                 })
                 options.append((label, idx))
             self.query_one('#historial-select', Select).set_options(options)
-            dbg.ok(f"  {len(options)} opciones")
-        except Exception as e:
-            dbg.exc("  error cargando historial", e)
+        except Exception:
+            pass
 
     # ================================================================
     # Autocomplete
@@ -196,8 +183,8 @@ class ConsejoView(Container):
             for i, r in enumerate(results):
                 ol.add_option(Option(r['display'], id=str(i)))
             ol.display = True
-        except Exception as e:
-            dbg.exc("ERROR _show_suggestions", e)
+        except Exception:
+            pass
 
     def _hide_suggestions(self) -> None:
         try:
@@ -222,7 +209,6 @@ class ConsejoView(Container):
     # ================================================================
 
     def _get_current_data(self) -> dict | None:
-        dbg.info(f"_get_current_data — modo={self.modo_actual}")
         if self.modo_actual == self.MODO_ULTIMA:
             return self.app.last_weather_data
         elif self.modo_actual == self.MODO_HISTORIAL:
@@ -231,15 +217,14 @@ class ConsejoView(Container):
                 val = sel.value
                 if val is not Select.BLANK and hasattr(self, '_historial_entries'):
                     return self._historial_entries[int(val)]
-            except Exception as e:
-                dbg.exc("  error leyendo historial-select", e)
+            except Exception:
+                pass
             return None
         elif self.modo_actual == self.MODO_NUEVA:
             return getattr(self, '_nueva_busqueda_data', None)
         return None
 
     def _set_modo(self, modo: str) -> None:
-        dbg.info(f"_set_modo({modo!r})")
         self.modo_actual = modo
         self._apply_mode_visibility(modo)
 
@@ -275,7 +260,6 @@ class ConsejoView(Container):
 
     @on(Button.Pressed, '#consejo-search-btn')
     def _on_consejo_search(self, event: Button.Pressed) -> None:
-        dbg.info("consejo-search-btn")
         event.stop()
         self._hide_suggestions()
         city = self.query_one('#consejo-city-input', Input).value.strip()
@@ -286,7 +270,6 @@ class ConsejoView(Container):
 
     @on(Input.Submitted, '#consejo-city-input')
     def _on_consejo_input_submitted(self, event: Input.Submitted) -> None:
-        dbg.info(f"Input.Submitted: {event.value!r}")
         event.stop()
         self._hide_suggestions()
         city = event.value.strip()
@@ -297,7 +280,6 @@ class ConsejoView(Container):
 
     @work(thread=True)
     def _fetch_nueva_ciudad(self, city: str) -> None:
-        dbg.info(f"[THREAD] _fetch_nueva_ciudad: {city!r}")
         self.app.call_from_thread(self._set_search_result, 'Buscando...')
         try:
             data = obtener_clima(city)
@@ -305,13 +287,11 @@ class ConsejoView(Container):
             ciudad = data.get('ciudad', city)
             temp   = data.get('temperatura', '?')
             desc   = data.get('descripcion', '?')
-            dbg.ok(f"[THREAD] OK: {ciudad} {temp}C")
             self.app.call_from_thread(
                 self._set_search_result,
                 f'Clima: {ciudad}  |  {temp}C  |  {desc}  —  Ya podes pedir el consejo.',
             )
         except Exception as e:
-            dbg.exc(f"[THREAD] Error: {city!r}", e)
             self._nueva_busqueda_data = None  # type: ignore[assignment]
             self.app.call_from_thread(self._set_search_result, f'Error: {e}')
 
@@ -321,7 +301,6 @@ class ConsejoView(Container):
 
     @on(Button.Pressed, '#ask-ai-btn')
     def _on_ask(self, event: Button.Pressed) -> None:
-        dbg.info("ask-ai-btn")
         event.stop()
         data = self._get_current_data()
         if data is None:
@@ -332,12 +311,10 @@ class ConsejoView(Container):
             }
             self.app.notify(mensajes.get(self.modo_actual, 'Sin datos de clima.'), severity='error')
             return
-        dbg.info(f"  ciudad={data.get('ciudad')!r}")
         self.ask_ai(data)
 
     @work(thread=True)
     def ask_ai(self, data: dict) -> None:
-        dbg.info(f"[THREAD] ask_ai ciudad={data.get('ciudad')!r}")
         self.app.call_from_thread(self._set_ai_response, 'Consultando a Gemini...')
         try:
             advice = obtener_consejo_vestimenta(
@@ -348,11 +325,9 @@ class ConsejoView(Container):
                 viento=data.get('viento_kmh', 0),
                 ciudad=data.get('ciudad', ''),
             )
-            dbg.ok(f"[THREAD] Gemini OK ({len(advice)} chars)")
             self.app.call_from_thread(
                 self._set_ai_response,
                 f'Consejo de vestimenta:\n\n{advice}',
             )
         except Exception as e:
-            dbg.exc("[THREAD] Error Gemini", e)
             self.app.call_from_thread(self._set_ai_response, f'Error al consultar la IA: {e}')
